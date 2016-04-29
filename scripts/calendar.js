@@ -3,25 +3,25 @@ function Calendar(settings) {
     /// <param name="settings">Initial settings.</param>
 
     /// <var type="HTMLElement">Main element.</var>
-    /// <var type="HTMLElement">Root element.</var>
-    /// <var type="HTMLElement">Calendar caption element.</var>
-    /// <var type="HTMLElement">Calendar table element.</var>
-    /// <var type="Date">Selected date.</var>
-
     var element = null;
+    /// <var type="HTMLElement">Root element.</var>
     var root = null;
+    /// <var type="HTMLElement">Calendar caption element.</var>
     var caption = null;
+    /// <var type="HTMLElement">Calendar table element.</var>
     var table = null;
+    /// <var type="Date">Selected date.</var>
     var date = null;
 
     function setCaption(text) {
         /// <param name="text" type="String">Caption string.</param>
+        /// <param name="arg" type="Calendar">This object.</param>
         caption.innerHTML = text;
     }
 
     function setCurrentElement(el, arg) {
         /// <param name="el" type="HTMLElement">Current day element.</param>
-        /// <param name="arg" type="Calendar">This object</param>
+        /// <param name="arg" type="Calendar>This object.</param>
         var days = table.getElementsByTagName("td");
         for (var i = 0; i < days.length; i++)
             Compatibility.removeClass(days[i], "calendar-selected-date");
@@ -60,7 +60,7 @@ function Calendar(settings) {
         for (var i = new Date(start), j = 0 ; j != 7; i.addDays(1), j++) {
             var th = document.createElement("th");
             Compatibility.addClass(th, "calendar-weekday");
-            if (j % 6 === 0)
+            if (j % 6 == 0)
                 Compatibility.addClass(th, "calendar-weekend");
             th.innerHTML = i.toLocaleDateString(arg.locale, { weekday: "narrow" });
             tr.appendChild(th);
@@ -95,20 +95,19 @@ function Calendar(settings) {
         }
     }
 
-    var locale = this.locale;
     this.setDate = function (d) {
         /// <param name="d" type="Date">Selected date.</param>
-        var event = document.createEvent("Event");
-        event.initEvent("datechanged", true, true);
+        var event = document.createEvent('Event');
+        event.initEvent('datechanged', true, true);
 
         event.oldDate = new Date(date);
         event.newDate = new Date(d);
         event.element = element;
 
         if (date == undefined ||
-            date.getMonth() !== d.getMonth() ||
-            date.getFullYear() !== d.getFullYear()) {
-            setCaption(d.toLocaleDateString(locale, { month: "long", year: "numeric" }));
+            date.getMonth() != d.getMonth() ||
+            date.getFullYear() != d.getFullYear()) {
+            setCaption(d.toLocaleDateString(this.locale, { month: "long", year: "numeric" }));
             updateTable(d, this);
         }
         date = d;
