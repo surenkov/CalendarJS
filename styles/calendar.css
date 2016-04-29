@@ -1,0 +1,139 @@
+/** Calendar.js widget styles */
+.calendar-wrapper {
+    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 100;
+}
+
+.calendar-widget {
+    display: block;
+    position: absolute;
+    top: 100%;
+    width: 300px;
+    height: 250px;
+    background: white;
+    border: 1px solid darkgray;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.10);
+    overflow: hidden;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.calendar-header {
+    display: table;
+    width: 100%; 
+    background: lightgray;
+    height: 20%;
+}
+
+.calendar-header > * {
+    display: table-cell;
+}
+
+.calendar-caption {
+    color: dimgray;
+    font-size: 14pt;
+    text-align: center;
+    vertical-align: middle;
+    cursor: default;
+    height: 100%;
+}
+
+.calendar-table {
+    width: 100%;
+    height: 80%;
+    color: dimgray;
+    border: none;
+}
+
+.calendar-table .calendar-head {
+    border-top: 1px solid darkgray;
+    border-bottom: 1px solid lightgray;
+}
+
+.calendar-table .calendar-weekday, 
+.calendar-table .calendar-day {
+    text-align: center;
+    font-size: 10pt;
+    width: 14.2857%;
+    cursor: default;
+    border: none;
+}
+
+.calendar-table .calendar-weekday {
+    background: #eee;
+    font-weight: bold;
+}
+
+.calendar-table .calendar-weekday.calendar-weekend {
+    background: lightgray;
+}
+
+.calendar-table .calendar-day.calendar-weekend {
+    background: #eee;
+}
+
+.calendar-table .calendar-day {
+    cursor: pointer;
+    transition: background-color ease-out .1s;
+}
+
+.calendar-table .calendar-day:hover,
+.calendar-table .calendar-day.calendar-other-month:hover {
+    background: #ddd;
+}
+
+.calendar-table .calendar-day.calendar-other-month {
+    background: #fafafa;
+}
+
+.calendar-table .calendar-day.calendar-selected-date {
+    font-weight: bold;
+    background: #dadada;
+}
+
+.calendar-table .calendar-day.calendar-weekend.calendar-other-month {
+    background: #e6e6e6;
+}
+
+.calendar-table .calendar-day.calendar-weekend.calendar-selected-date,
+.calendar-table .calendar-day.calendar-weekend.calendar-other-month:hover {
+    background: #d1d1d1;
+}
+
+.calendar-table .calendar-day.calendar-current-date {
+    font-weight: bold;
+    color: black;
+}
+
+
+.fa {
+    text-align: center;
+    vertical-align: middle;
+    color: dimgray;
+    cursor: pointer;
+    transition: all ease-out .15s;
+}
+
+.fa:hover {
+    background-color: #e1e1e1;
+}
+
+.fa:active {
+    background-color: darkgray;
+    color: #e1e1e1;
+}
+
+.fa-1 {
+    width: 7%;
+    font-size: 1em;
+}
+
+.fa-2 {
+    width: 10%;
+    font-size: 2em;
+}
